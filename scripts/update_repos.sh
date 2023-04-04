@@ -2,7 +2,8 @@
 # Usage:
 #   ./update_repos.sh [parent_directory] 
 #   example usage:
-#       ./update_repos.sh C:/GitProjects/ [MAKE SURE YOU USE / SLASHES]
+#       Windows: update_repos.sh C:/dev/myLocalRepositories
+#       MacOs:   sudo update_repos.sh /Users/username/dev/myLocalRepositories
 
 updateRepo() {
 
@@ -43,9 +44,12 @@ updateRepo() {
 
 directory_to_update=${1}
 
-if [ -z "$directory_to_update" ] ; then
-    echo "no directory passed in, using current directory"
+if [ -z "$directory_to_update" ] 
+  then
+    echo "No directory passed in, using current directory"
     directory_to_update=$PWD
+  else 
+    echo "Directory passed in, using $directory_to_update"
 fi 
 
 echo "Updating git repo's in directory: $directory_to_update"
