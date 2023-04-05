@@ -10,39 +10,38 @@ listRepo() {
     local dir="$1"
     local original_dir="$2"
 
-    cd $dir # switch to the git repo
-    repo_url=$(git config --get remote.origin.url)
+    # Switch to the git repository
+    cd $dir
 
     echo "****************************************************************************"
     echo "List branches in $PWD"
 
-    # update the repo, then stash any local changes
+    # List current local branches for the directory
     echo -e "\ncalling: git branch -l"
     (git branch -l) 
 
-    #switch back to the starting directory
+    # Switch back to the starting directory
     cd $original_dir
-    echo "Done!"
-    echo ""
+    echo "Done!\n"
 }
 
-directory_to_update=${1}
+directory_to_process=${1}
 
-if [ -z "$directory_to_update" ] 
+if [ -z "$directory_to_process" ] 
   then
     echo "No directory passed in, using current directory"
-    directory_to_update=$PWD
+    directory_to_process=$PWD
   else 
-    echo "Directory passed in, using $directory_to_update"
+    echo "Directory $directory_to_update passed in as argument"
 fi 
 
-echo "Listing of git repo's in directory: $directory_to_update"
+echo "Listing of git repository branches from base directory: $directory_to_process"
 count=0
 
-for dir in $(find $directory_to_update -maxdepth 4 -type d -name .git | xargs -n 1 dirname); do
-    listRepo $dir $directory_to_update #& #uncomment to make it run in multiple threads, meh
+for dir in $(find $directory_to_process -maxdepth 4 -type d -name .git | xargs -n 1 dirname); do
+    listRepo $dir $directory_to_process #& #uncomment to make it run in multiple threads, meh
     ((count+=1))
 done
 
-echo "$count local git repos have been listed!"
-echo "Script complete"
+echo "$count local git repositories have been listed!"
+echo "Script complete\n"

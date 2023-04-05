@@ -10,39 +10,38 @@ statusRepo() {
     local dir="$1"
     local original_dir="$2"
 
-    cd $dir # switch to the git repo
-    repo_url=$(git config --get remote.origin.url)
+    # Switch to the git repository
+    cd $dir
 
     echo "****************************************************************************"
-    echo "Checking status in $PWD"
+    echo "Checking status of repository in $PWD"
 
-    # update the repo, then stash any local changes
+    # Status check current directory
     echo -e "\ncalling: git status"
     (git status) 
 
-    #switch back to the starting directory
+    # Switch back to the starting directory
     cd $original_dir
-    echo "Done!"
-    echo ""
+    echo "Done!\n"
 }
 
-directory_to_update=${1}
+directory_to_process=${1}
 
-if [ -z "$directory_to_update" ] 
+if [ -z "$directory_to_process" ] 
   then
     echo "No directory passed in, using current directory"
-    directory_to_update=$PWD
+    directory_to_process=$PWD
   else 
-    echo "Directory passed in, using $directory_to_update"
+    echo "Directory $directory_to_process passed in as argument"
 fi 
 
-echo "Checking status of git repo's in directory: $directory_to_update"
+echo "Checking status of git repositories in directory: $directory_to_process"
 count=0
 
-for dir in $(find $directory_to_update -maxdepth 4 -type d -name .git | xargs -n 1 dirname); do
-    statusRepo $dir $directory_to_update #& #uncomment to make it run in multiple threads, meh
+for dir in $(find $directory_to_process -maxdepth 4 -type d -name .git | xargs -n 1 dirname); do
+    statusRepo $dir $directory_to_process #& #uncomment to make it run in multiple threads, meh
     ((count+=1))
 done
 
-echo "$count local git repos status have been listed!"
-echo "Script complete"
+echo "$count local git repositories status have been listed!"
+echo "Script complete\n"
