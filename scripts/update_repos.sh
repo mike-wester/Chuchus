@@ -39,6 +39,7 @@ updateRepo() {
 
     #switch back to the starting directory
     cd $original_dir
+    echo "Done!"
     echo ""
 }
 
@@ -61,3 +62,4 @@ for dir in $(find $directory_to_update -maxdepth 4 -type d -name .git | xargs -n
 done
 
 echo "$count local git repos have been updated!"
+echo "Script complete"
