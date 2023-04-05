@@ -1,9 +1,9 @@
 #!/bin/bash
 # Usage:
-#   ./status_repos.sh [parent_directory] 
+#   ./status_repo.sh [parent_directory] 
 #   example usage:
-#       Windows: status_repos.sh C:/dev/myLocalRepositories
-#       MacOs:   sudo status_repos.sh /Users/username/dev/myLocalRepositories
+#       Windows: status_repo.sh C:/dev/myLocalRepositories
+#       MacOs:   sudo status_repo.sh /Users/username/dev/myLocalRepositories
 
 statusRepo() {
 

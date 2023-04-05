@@ -1,9 +1,9 @@
 #!/bin/bash
 # Usage:
-#   ./update_repos.sh [parent_directory] 
+#   ./update_repo.sh [parent_directory] 
 #   example usage:
-#       Windows: update_repos.sh C:/dev/myLocalRepositories
-#       MacOs:   sudo update_repos.sh /Users/username/dev/myLocalRepositories
+#       Windows: update_repo.sh C:/dev/myLocalRepositories
+#       MacOs:   sudo update_repo.sh /Users/username/dev/myLocalRepositories
 
 updateRepo() {
 
