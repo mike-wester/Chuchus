@@ -6,6 +6,8 @@ Automate all the things!
 # TODO
 - Shell Scripting
     - Initial versions of this script are based off of [this stack overflow post](https://stackoverflow.com/a/36800741/7400802)
+    - General Improvements
+        - [ ] Validate directory argument is a valid directory
     - create_repos.sh
         - [ ] Initial Creation
     - update_repos.sh
@@ -14,5 +16,9 @@ Automate all the things!
         - [ ] Fetch vs Pull
     - list_repos.sh
         - [X] Initial Creation
+        - [ ] List both local and remote branches
+        - [ ] Allow argument options for speed
+        - [ ] Cleanup branches?
     - status_repos.sh
         - [X] Initial Creation
+        - [ ] Handle pending changes
