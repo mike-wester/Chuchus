@@ -13,6 +13,6 @@ Automate all the things!
         - [ ] Allow argument options
         - [ ] Fetch vs Pull
     - list_repos.sh
-        - [ ] Initial Creation
+        - [X] Initial Creation
     - status_repos.sh
         - [X] Initial Creation
