@@ -11,37 +11,37 @@ listRepo() {
     local original_dir="$2"
 
     # Switch to the git repository
-    cd $dir
+    cd "$dir" || exit
 
-    echo "****************************************************************************"
-    echo "List branches in $PWD"
+    printf "****************************************************************************"
+    printf "List branches in %s" "$PWD"
 
     # List current local branches for the directory
-    echo -e "\ncalling: git branch -l"
+    printf "\ncalling: git branch -l"
     (git branch -l) 
 
     # Switch back to the starting directory
-    cd $original_dir
-    echo "Done!\n"
+    cd "$original_dir" || exit
+    printf "Done!\n"
 }
 
 directory_to_process=${1}
 
 if [ -z "$directory_to_process" ] 
   then
-    echo "No directory passed in, using current directory"
+    printf "No directory passed in, using current directory"
     directory_to_process=$PWD
   else 
-    echo "Directory $directory_to_update passed in as argument"
+    printf "Directory %s passed in as argument" "$directory_to_process"
 fi 
 
-echo "Listing of git repository branches from base directory: $directory_to_process"
+printf "Listing of git repository branches from base directory: %s" "$directory_to_process"
 count=0
 
-for dir in $(find $directory_to_process -maxdepth 4 -type d -name .git | xargs -n 1 dirname); do
-    listRepo $dir $directory_to_process #& #uncomment to make it run in multiple threads, meh
+for dir in $(find "$directory_to_process" -print0 -maxdepth 4 -type d -name .git | xargs -n 1 dirname); do
+    listRepo "$dir" "$directory_to_process" #& #uncomment to make it run in multiple threads, meh
     ((count+=1))
 done
 
-echo "$count local git repositories have been listed!"
-echo "Script complete\n"
+printf "%s local git repositories have been listed!" "$count"
+printf "Script complete\n"

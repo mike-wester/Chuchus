@@ -7,6 +7,7 @@ Automate all the things!
 - Shell Scripting
     - Initial versions of this script are based off of [this stack overflow post](https://stackoverflow.com/a/36800741/7400802)
     - General Improvements
+        - [ ] Validate following best practices at [shellcheck.net](https://www.shellcheck.net/)
         - [ ] Validate directory argument is a valid directory
     - create_repos.sh
         - [ ] Initial Creation
