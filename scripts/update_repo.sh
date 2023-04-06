@@ -11,7 +11,7 @@ updateRepo() {
     local original_dir="$2"
 
     # Switch to the git repository
-    cd $dir
+    cd "$dir" || exit
 
     repo_url=$(git config --get remote.origin.url)
 

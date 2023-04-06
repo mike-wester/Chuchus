@@ -11,37 +11,39 @@ statusRepo() {
     local original_dir="$2"
 
     # Switch to the git repository
-    cd $dir
+    cd "$dir" || exit
 
-    echo "****************************************************************************"
-    echo "Checking status of repository in $PWD"
+    printf "\n****************************************************************************\n"
+    printf "Checking status of repository in %s\n" "$PWD"
 
     # Status check current directory
-    echo -e "\ncalling: git status"
+    printf "\ncalling: git status\n"
     (git status) 
 
     # Switch back to the starting directory
-    cd $original_dir
-    echo "Done!\n"
+    cd "$original_dir" || exit
+    printf "Done!\n"
 }
 
 directory_to_process=${1}
 
+printf "\nScript starting\n\n"
+
 if [ -z "$directory_to_process" ] 
   then
-    echo "No directory passed in, using current directory"
+    echo "No directory passed in, using current directory\n"
     directory_to_process=$PWD
   else 
-    echo "Directory $directory_to_process passed in as argument"
+    printf "Directory %s passed in as argument\n" "$directory_to_process"
 fi 
 
-echo "Checking status of git repositories in directory: $directory_to_process"
+printf "Checking status of git repositories in directory: %s\n" "$directory_to_process"
 count=0
 
-for dir in $(find $directory_to_process -maxdepth 4 -type d -name .git | xargs -n 1 dirname); do
-    statusRepo $dir $directory_to_process #& #uncomment to make it run in multiple threads, meh
+for dir in $(find "$directory_to_process" -maxdepth 4 -type d -name .git | xargs -n 1 dirname); do
+    statusRepo "$dir" "$directory_to_process" #& #uncomment to make it run in multiple threads, meh
     ((count+=1))
 done
 
-echo "$count local git repositories status have been listed!"
-echo "Script complete\n"
+printf "\n\n%s local git repositories status have been listed!\n" "$count"
+printf "\nScript complete\n\n"
