@@ -40,7 +40,7 @@ fi
 printf "Listing of git repository branches from base directory: %s\n" "$directory_to_process"
 count=0
 
-for dir in $(find "$directory_to_process" -maxdepth 4 -type d -name .git | xargs -n 1 dirname); do
+for dir in $(find "$directory_to_process" -maxdepth 2 -type d -name .git | xargs -n 1 dirname); do
     listRepo "$dir" "$directory_to_process" #& #uncomment to make it run in multiple threads, meh
     ((count+=1))
 done

@@ -60,7 +60,7 @@ fi
 echo "Updating git repo's in directory: $directory_to_update"
 count=0
 
-for dir in $(find $directory_to_update -maxdepth 4 -type d -name .git | xargs -n 1 dirname); do
+for dir in $(find $directory_to_update -maxdepth 2 -type d -name .git | xargs -n 1 dirname); do
     updateRepo $dir $directory_to_update #& #uncomment to make it run in multiple threads, meh
     ((count+=1))
 done
