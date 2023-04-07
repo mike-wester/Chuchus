@@ -17,7 +17,7 @@ listRepo() {
     printf "List branches in %s\n" "$PWD"
 
     # List current local branches for the directory
-    printf "\ncalling: git branch -l\n"
+    printf "calling: git branch -l\n\n"
     (git branch -l) 
 
     # Switch back to the starting directory

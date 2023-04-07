@@ -8,7 +8,7 @@ Automate all the things!
     - Initial versions of this script are based off of [this stack overflow post](https://stackoverflow.com/a/36800741/7400802)
     - General Improvements
         - [X] Validate following best practices at [shellcheck.net](https://www.shellcheck.net/)
-        - [ ] Validate directory argument is a valid directory
+        - [X] Validate directory argument is a valid directory
     - create_repos.sh
         - [ ] Initial Creation
     - update_repos.sh
@@ -19,7 +19,8 @@ Automate all the things!
         - [X] Initial Creation
         - [ ] List both local and remote branches
         - [ ] Allow argument options for speed
-        - [ ] Cleanup branches?
+        - [ ] Cleanup branches
     - status_repos.sh
         - [X] Initial Creation
-        - [ ] Handle pending changes
+        - [ ] Remove pending changes
+        - [ ] Stash pending changes

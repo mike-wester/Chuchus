@@ -17,7 +17,7 @@ statusRepo() {
     printf "Checking status of repository in %s\n" "$PWD"
 
     # Status check current directory
-    printf "\ncalling: git status\n"
+    printf "calling: git status\n\n"
     (git status) 
 
     # Switch back to the starting directory
@@ -31,7 +31,7 @@ printf "\nScript starting\n\n"
 
 if [ -z "$directory_to_process" ] 
   then
-    echo "No directory passed in, using current directory\n"
+    printf "No directory passed in, using current directory\n"
     directory_to_process=$PWD
   else 
     printf "Directory %s passed in as argument\n" "$directory_to_process"
