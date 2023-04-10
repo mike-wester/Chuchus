@@ -1,4 +1,4 @@
-# Minions
+# Gremlins
 Collection of small useful tools to run operations.
 
 Automate all the things!
