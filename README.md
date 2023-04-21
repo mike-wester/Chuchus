@@ -8,7 +8,8 @@ Automate all the things!
     - Initial versions of this script are based off of [this stack overflow post](https://stackoverflow.com/a/36800741/7400802)
     - General Improvements
         - [X] Validate following best practices at [shellcheck.net](https://www.shellcheck.net/)
-        - [X] Validate directory argument is a valid directory
+        - [X] Handle invalid directory argument
+        - [ ] Validate directory argument is a valid directory
     - create_repos.sh
         - [ ] Initial Creation
     - update_repos.sh

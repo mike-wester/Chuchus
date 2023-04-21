@@ -16,8 +16,8 @@ updateRepo() {
     repo_url=$(git config --get remote.origin.url)
 
     printf "\n****************************************************************************\n"
-    printf "Updating repository: $dir with url: %s\n" "$repo_url"
-    printf "Starting update in %sd\n" "$PWD"
+    printf "\nUpdating repository: $dir with url: %s\n" "$repo_url"
+    printf "\nStarting update in %sd\n" "$PWD"
 
     main_branch="master"
 
