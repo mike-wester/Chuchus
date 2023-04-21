@@ -14,7 +14,7 @@ statusRepo() {
     cd "$dir" || exit
 
     printf "\n****************************************************************************\n"
-    printf "Checking status of repository in %s\n" "$PWD"
+    printf "\nChecking status of repository in %s\n" "$PWD"
 
     # Status check current directory
     printf "calling: git status\n\n"

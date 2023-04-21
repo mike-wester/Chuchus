@@ -14,7 +14,7 @@ listRepo() {
     cd "$dir" || exit
 
     printf "\n****************************************************************************\n"
-    printf "List branches in %s\n" "$PWD"
+    printf "\nList branches in %s\n" "$PWD"
 
     # List current local branches for the directory
     printf "calling: git branch -l\n\n"

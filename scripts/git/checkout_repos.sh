@@ -1,9 +1,9 @@
 #!/bin/bash
 # Usage:
-#   ./update_repo.sh [parent_directory] 
+#   ./checkout_repos.sh
 #   example usage:
-#       Windows: update_repo.sh C:/dev/myLocalRepositories
-#       MacOs:   sudo update_repo.sh /Users/username/dev/myLocalRepositories
+#       Windows: checkout_repos.sh C:/dev/myLocalRepositories
+#       MacOs:   sudo checkout_repos.sh /Users/username/dev/myLocalRepositories
 
 checkoutRepo() {
 
@@ -11,7 +11,7 @@ checkoutRepo() {
     local url="$1"
 
     printf "\n****************************************************************************\n"
-    printf "\Creating repository with url: %s\n" "$repo_url"
+    printf "\nCreating repository with url: %s\n" "$url"
 
     # Rebase the original branch and then stash pop back to original state
     printf "calling: git clone %s\n" "$url"
@@ -37,5 +37,5 @@ for url in "${repositories_to_checkout[@]}"; do
     ((count+=1))
 done
 
-printf "\n\n%s local git repositories status have been listed!\n" "$count"
+printf "\n\n%s local git repositories status have been created!\n" "$count"
 printf "\nScript complete\n\n"
