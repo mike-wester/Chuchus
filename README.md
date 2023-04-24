@@ -11,7 +11,10 @@ Automate all the things!
         - [X] Handle invalid directory argument
         - [ ] Validate directory argument is a valid directory
     - create_repos.sh
-        - [ ] Initial Creation
+        - [X] Initial Creation
+        - [ ] Allow destination directory
+        - [ ] Handle repositories already checked out
+        - [ ] Allow alliasing folder name
     - update_repos.sh
         - [X] Initial Creation
         - [ ] Allow argument options
